@@ -1,2 +1,10 @@
-# Head
-HTML Head utility
+Coercive Utility Head
+=====================
+
+IN WORK
+
+Get
+---
+```
+composer require coercive/head
+```
