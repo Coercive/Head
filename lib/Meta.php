@@ -10,6 +10,20 @@ namespace Coercive\Utility\Head;
 class Meta extends GenericAccessors
 {
 	/**
+	 * @inheritdoc
+	 * @see GenericAccessors::toHtml()
+	 */
+	public function toHtml(): string
+	{
+		$html = '<meta ';
+		foreach ($this->getArrayCopy() as $attr => $data) {
+			$html .= $attr . '"' . str_replace('"', '', $data) . '" ';
+		}
+		$html .= '/>';
+		return $html;
+	}
+
+	/**
 	 * (SET) CHARSET
 	 *
 	 * @param string $value
@@ -28,7 +42,7 @@ class Meta extends GenericAccessors
 	 */
 	public function getCharset(string $escape = '"'): string
 	{
-		return $this->get('charset', $escape);
+		return $this->getAttr('charset', $escape);
 	}
 
 	/**
@@ -51,7 +65,7 @@ class Meta extends GenericAccessors
 	 */
 	public function getName(string $escape = '"'): string
 	{
-		return $this->get('name', $escape);
+		return $this->getAttr('name', $escape);
 	}
 
 	/**
@@ -73,7 +87,7 @@ class Meta extends GenericAccessors
 	 */
 	public function getContent(string $escape = '"'): string
 	{
-		return $this->get('content', $escape);
+		return $this->getAttr('content', $escape);
 	}
 
 	/**
@@ -95,7 +109,7 @@ class Meta extends GenericAccessors
 	 */
 	public function getProperty(string $escape = '"'): string
 	{
-		return $this->get('property', $escape);
+		return $this->getAttr('property', $escape);
 	}
 
 	/**
@@ -117,7 +131,7 @@ class Meta extends GenericAccessors
 	 */
 	public function getHttpEquiv(string $escape = '"'): string
 	{
-		return $this->get('http-equiv', $escape);
+		return $this->getAttr('http-equiv', $escape);
 	}
 
 	/**
@@ -139,6 +153,6 @@ class Meta extends GenericAccessors
 	 */
 	public function getItemprop(string $escape = '"'): string
 	{
-		return $this->get('itemprop', $escape);
+		return $this->getAttr('itemprop', $escape);
 	}
 }

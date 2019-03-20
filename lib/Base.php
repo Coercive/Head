@@ -10,6 +10,20 @@ namespace Coercive\Utility\Head;
 class Base extends GenericAccessors
 {
 	/**
+	 * @inheritdoc
+	 * @see GenericAccessors::toHtml()
+	 */
+	public function toHtml(): string
+	{
+		$html = '<base ';
+		foreach ($this->getArrayCopy() as $attr => $data) {
+			$html .= $attr . '"' . str_replace('"', '', $data) . '" ';
+		}
+		$html .= '/>';
+		return $html;
+	}
+
+	/**
 	 * (SET) HREF
 	 *
 	 * @param string $value
@@ -28,7 +42,7 @@ class Base extends GenericAccessors
 	 */
 	public function getHref(string $escape = '"'): string
 	{
-		return $this->get('href', $escape);
+		return $this->getAttr('href', $escape);
 	}
 
 	/**
@@ -50,6 +64,6 @@ class Base extends GenericAccessors
 	 */
 	public function getTarget(string $escape = '"'): string
 	{
-		return $this->get('target', $escape);
+		return $this->getAttr('target', $escape);
 	}
 }

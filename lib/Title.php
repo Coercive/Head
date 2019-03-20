@@ -10,6 +10,20 @@ namespace Coercive\Utility\Head;
 class Title extends GenericAccessors
 {
 	/**
+	 * @inheritdoc
+	 * @see GenericAccessors::toHtml()
+	 */
+	public function toHtml(): string
+	{
+		$html = '<title ';
+		foreach ($this->getArrayCopy() as $attr => $data) {
+			$html .= $attr . '"' . str_replace('"', '', $data) . '" ';
+		}
+		$html .= '/>';
+		return $html;
+	}
+
+	/**
 	 * (SET) CONTENT
 	 *
 	 * @param string $value
@@ -28,6 +42,6 @@ class Title extends GenericAccessors
 	 */
 	public function getContent(): string
 	{
-		return $this->get('content');
+		return $this->getAttr('content');
 	}
 }

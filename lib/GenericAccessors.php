@@ -12,13 +12,20 @@ use Coercive\App\Service\Container;
 abstract class GenericAccessors extends Container
 {
 	/**
+	 * Spit instance to html string element
+	 *
+	 * @return string
+	 */
+	abstract public function toHtml(): string;
+
+	/**
 	 * GENERIC GET ATTR
 	 *
 	 * @param string $name
 	 * @param string $escape
 	 * @return string
 	 */
-	public function get(string $name, string $escape = '"'): string
+	public function getAttr(string $name, string $escape = '"'): string
 	{
 		$value = (string) $this->offsetGet($name);
 		return $escape ? str_replace($escape, '', $value) : $value;
@@ -31,7 +38,7 @@ abstract class GenericAccessors extends Container
 	 * @param string $value
 	 * @return $this
 	 */
-	public function set(string $name, string $value)
+	public function setAttr(string $name, string $value)
 	{
 		return $this->offsetSet($name, $value);
 	}
@@ -58,7 +65,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getAccessKey(string $escape = '"'): string
 	{
-		return $this->get('accesskey', $escape);
+		return $this->getAttr('accesskey', $escape);
 	}
 
 	/**
@@ -80,7 +87,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getClass(string $escape = '"'): string
 	{
-		return $this->get('class', $escape);
+		return $this->getAttr('class', $escape);
 	}
 
 	/**
@@ -102,7 +109,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getContentEditable(string $escape = '"'): string
 	{
-		return $this->get('contenteditable', $escape);
+		return $this->getAttr('contenteditable', $escape);
 	}
 
 	/**
@@ -126,7 +133,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getData(string $name, string $escape = '"'): string
 	{
-		return $this->get('data-'.$name, $escape);
+		return $this->getAttr('data-'.$name, $escape);
 	}
 
 	/**
@@ -148,7 +155,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getDir(string $escape = '"'): string
 	{
-		return $this->get('dir', $escape);
+		return $this->getAttr('dir', $escape);
 	}
 
 	/**
@@ -170,7 +177,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getDraggable(string $escape = '"'): string
 	{
-		return $this->get('draggable', $escape);
+		return $this->getAttr('draggable', $escape);
 	}
 
 	/**
@@ -192,7 +199,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getDropzone(string $escape = '"'): string
 	{
-		return $this->get('dropzone', $escape);
+		return $this->getAttr('dropzone', $escape);
 	}
 
 	/**
@@ -214,7 +221,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getHidden(string $escape = '"'): string
 	{
-		return $this->get('hidden', $escape);
+		return $this->getAttr('hidden', $escape);
 	}
 
 	/**
@@ -236,7 +243,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getId(string $escape = '"'): string
 	{
-		return $this->get('id', $escape);
+		return $this->getAttr('id', $escape);
 	}
 
 	/**
@@ -258,7 +265,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getLang(string $escape = '"'): string
 	{
-		return $this->get('lang', $escape);
+		return $this->getAttr('lang', $escape);
 	}
 
 	/**
@@ -280,7 +287,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getSpellCheck(string $escape = '"'): string
 	{
-		return $this->get('spellcheck', $escape);
+		return $this->getAttr('spellcheck', $escape);
 	}
 
 	/**
@@ -302,7 +309,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getStyle(string $escape = '"'): string
 	{
-		return $this->get('style', $escape);
+		return $this->getAttr('style', $escape);
 	}
 
 	/**
@@ -323,7 +330,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getTabIndex(): string
 	{
-		return (int) $this->get('tabindex', '');
+		return (int) $this->getAttr('tabindex', '');
 	}
 
 	/**
@@ -345,7 +352,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getTitle(string $escape = '"'): string
 	{
-		return $this->get('title', $escape);
+		return $this->getAttr('title', $escape);
 	}
 
 	/**
@@ -367,6 +374,6 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getTranslate(string $escape = '"'): string
 	{
-		return $this->get('translate', $escape);
+		return $this->getAttr('translate', $escape);
 	}
 }

@@ -10,6 +10,20 @@ namespace Coercive\Utility\Head;
 class Link extends GenericAccessors
 {
 	/**
+	 * @inheritdoc
+	 * @see GenericAccessors::toHtml()
+	 */
+	public function toHtml(): string
+	{
+		$html = '<link ';
+		foreach ($this->getArrayCopy() as $attr => $data) {
+			$html .= $attr . '"' . str_replace('"', '', $data) . '" ';
+		}
+		$html .= '/>';
+		return $html;
+	}
+
+	/**
 	 * (SET) CHARSET
 	 *
 	 * @param string $value
@@ -28,7 +42,7 @@ class Link extends GenericAccessors
 	 */
 	public function getCharset(string $escape = '"'): string
 	{
-		return $this->get('charset', $escape);
+		return $this->getAttr('charset', $escape);
 	}
 
 	/**
@@ -50,7 +64,7 @@ class Link extends GenericAccessors
 	 */
 	public function getCrossorigin(string $escape = '"'): string
 	{
-		return $this->get('crossorigin', $escape);
+		return $this->getAttr('crossorigin', $escape);
 	}
 
 	/**
@@ -72,7 +86,7 @@ class Link extends GenericAccessors
 	 */
 	public function getHref(string $escape = '"'): string
 	{
-		return $this->get('href', $escape);
+		return $this->getAttr('href', $escape);
 	}
 
 	/**
@@ -94,7 +108,7 @@ class Link extends GenericAccessors
 	 */
 	public function getHrefLang(string $escape = '"'): string
 	{
-		return $this->get('hreflang', $escape);
+		return $this->getAttr('hreflang', $escape);
 	}
 
 	/**
@@ -116,7 +130,7 @@ class Link extends GenericAccessors
 	 */
 	public function getMedia(string $escape = '"'): string
 	{
-		return $this->get('media', $escape);
+		return $this->getAttr('media', $escape);
 	}
 
 	/**
@@ -138,7 +152,7 @@ class Link extends GenericAccessors
 	 */
 	public function getRel(string $escape = '"'): string
 	{
-		return $this->get('rel', $escape);
+		return $this->getAttr('rel', $escape);
 	}
 
 	/**
@@ -160,7 +174,7 @@ class Link extends GenericAccessors
 	 */
 	public function getRev(string $escape = '"'): string
 	{
-		return $this->get('rev', $escape);
+		return $this->getAttr('rev', $escape);
 	}
 
 	/**
@@ -182,7 +196,7 @@ class Link extends GenericAccessors
 	 */
 	public function getSizes(string $escape = '"'): string
 	{
-		return $this->get('sizes', $escape);
+		return $this->getAttr('sizes', $escape);
 	}
 
 	/**
@@ -204,7 +218,7 @@ class Link extends GenericAccessors
 	 */
 	public function getTarget(string $escape = '"'): string
 	{
-		return $this->get('target', $escape);
+		return $this->getAttr('target', $escape);
 	}
 
 	/**
@@ -226,6 +240,6 @@ class Link extends GenericAccessors
 	 */
 	public function getType(string $escape = '"'): string
 	{
-		return $this->get('type', $escape);
+		return $this->getAttr('type', $escape);
 	}
 }

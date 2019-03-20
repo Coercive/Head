@@ -10,6 +10,25 @@ namespace Coercive\Utility\Head;
 class Style extends GenericAccessors
 {
 	/**
+	 * @inheritdoc
+	 * @see GenericAccessors::toHtml()
+	 */
+	public function toHtml(): string
+	{
+		$html = '<style ';
+		foreach ($this->getArrayCopy() as $attr => $data) {
+			if($attr === 'content') { continue; }
+			$html .= $attr . '"' . str_replace('"', '', $data) . '" ';
+		}
+		$html .= '>';
+		if($this->offsetExists('content')) {
+			$html .= $this->getContent();
+		}
+		$html .= '</style>';
+		return $html;
+	}
+
+	/**
 	 * (SET) TYPE
 	 *
 	 * @param string $value
@@ -29,7 +48,7 @@ class Style extends GenericAccessors
 	 */
 	public function getType(string $escape = '"'): string
 	{
-		return $this->get('type', $escape);
+		return $this->getAttr('type', $escape);
 	}
 
 	/**
@@ -52,7 +71,7 @@ class Style extends GenericAccessors
 	 */
 	public function getMedia(string $escape = '"'): string
 	{
-		return $this->get('media', $escape);
+		return $this->getAttr('media', $escape);
 	}
 
 	/**
@@ -73,6 +92,6 @@ class Style extends GenericAccessors
 	 */
 	public function getContent(): string
 	{
-		return $this->get('content', '');
+		return $this->getAttr('content', '');
 	}
 }

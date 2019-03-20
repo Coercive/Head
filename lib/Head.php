@@ -15,6 +15,31 @@ use Coercive\App\Service\Container;
  */
 class Head extends Container
 {
+	public function toHtml(): string
+	{
+		$html = '';
+
+		/** @var GenericAccessors|array $items */
+		foreach ($this->getArrayCopy() as $items) {
+
+			if(is_array($items)) {
+				/** @var GenericAccessors $item */
+				foreach ($items as $item) {
+					$html .= $item->toHtml();
+					$html .= "\n";
+				}
+			}
+
+			else {
+				$html .= $items->toHtml();
+				$html .= "\n";
+			}
+
+		}
+
+		return $html;
+	}
+
 	public function addCustomMeta(string $name, Meta $meta, bool $uniq = true): Head
 	{
 		# Add uniq Meta
@@ -44,16 +69,26 @@ class Head extends Container
 		return $this->addCustomMeta($name, $meta, $uniq);
 	}
 
+	public function addCustomTitle(Title $title): Head
+	{
+		return $this->offsetSet('title', $title);
+	}
+
 	public function addTitle(string $value): Head
 	{
 		$title = (new Title)->setContent($value);
-		return $this->offsetSet('title', $title);
+		return $this->addCustomTitle($title);
+	}
+
+	public function addCustomBase(Base $base): Head
+	{
+		return $this->offsetSet('base', $base);
 	}
 
 	public function addBase(string $href, string $target): Head
 	{
 		$base = (new Base)->setHref($href)->setTarget($target);
-		return $this->offsetSet('base', $base);
+		return $this->addCustomBase($base);
 	}
 
 	public function addCharset(string $value): Head
@@ -108,6 +143,11 @@ class Head extends Container
 		return $this->addMeta('last-modified', $value);
 	}
 
+	public function addCustomCssLink(Link $link): Head
+	{
+		return $this->offsetPush('link', $link);
+	}
+
 	public function addCssLink(string $href, string $media = 'screen'): Head
 	{
 		$link = (new Link)
@@ -116,6 +156,19 @@ class Head extends Container
 			->setCharset('utf-8')
 			->setMedia($media)
 			->setHref($href);
-		return $this->offsetPush('link', $link);
+		return $this->addCustomCssLink($link);
+	}
+
+	public function addCustomScript(Script $script): Head
+	{
+		return $this->offsetPush('script', $script);
+	}
+
+	public function addScriptSource(string $src): Head
+	{
+		$script = (new Script)
+			->setType('text/javascript')
+			->setSrc($src);
+		return $this->addCustomScript($script);
 	}
 }

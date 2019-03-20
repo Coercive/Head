@@ -10,6 +10,25 @@ namespace Coercive\Utility\Head;
 class Script extends GenericAccessors
 {
 	/**
+	 * @inheritdoc
+	 * @see GenericAccessors::toHtml()
+	 */
+	public function toHtml(): string
+	{
+		$html = '<script ';
+		foreach ($this->getArrayCopy() as $attr => $data) {
+			if($attr === 'content') { continue; }
+			$html .= $attr . '"' . str_replace('"', '', $data) . '" ';
+		}
+		$html .= '>';
+		if($this->offsetExists('content')) {
+			$html .= $this->getContent();
+		}
+		$html .= '</script>';
+		return $html;
+	}
+
+	/**
 	 * (SET) CHARSET
 	 *
 	 * @param string $value
@@ -28,7 +47,7 @@ class Script extends GenericAccessors
 	 */
 	public function getCharset(string $escape = '"'): string
 	{
-		return $this->get('charset', $escape);
+		return $this->getAttr('charset', $escape);
 	}
 
 	/**
@@ -51,7 +70,7 @@ class Script extends GenericAccessors
 	 */
 	public function getAsync(string $escape = '"'): string
 	{
-		return $this->get('async', $escape);
+		return $this->getAttr('async', $escape);
 	}
 
 	/**
@@ -74,7 +93,7 @@ class Script extends GenericAccessors
 	 */
 	public function getDefer(string $escape = '"'): string
 	{
-		return $this->get('defer', $escape);
+		return $this->getAttr('defer', $escape);
 	}
 
 	/**
@@ -97,7 +116,7 @@ class Script extends GenericAccessors
 	 */
 	public function getSrc(string $escape = '"'): string
 	{
-		return $this->get('src', $escape);
+		return $this->getAttr('src', $escape);
 	}
 
 	/**
@@ -120,7 +139,7 @@ class Script extends GenericAccessors
 	 */
 	public function getType(string $escape = '"'): string
 	{
-		return $this->get('type', $escape);
+		return $this->getAttr('type', $escape);
 	}
 
 	/**
@@ -141,6 +160,6 @@ class Script extends GenericAccessors
 	 */
 	public function getContent(): string
 	{
-		return $this->get('content', '');
+		return $this->getAttr('content', '');
 	}
 }
