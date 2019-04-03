@@ -31,7 +31,7 @@ class Link extends GenericAccessors
 	 */
 	public function setCharset(string $value): Link
 	{
-		return $this->offsetSet('charset', $value);
+		return $this->set('charset', $value);
 	}
 
 	/**
@@ -53,7 +53,7 @@ class Link extends GenericAccessors
 	 */
 	public function setCrossorigin(string $value): Link
 	{
-		return $this->offsetSet('crossorigin', $value);
+		return $this->set('crossorigin', $value);
 	}
 
 	/**
@@ -75,7 +75,7 @@ class Link extends GenericAccessors
 	 */
 	public function setHref(string $value): Link
 	{
-		return $this->offsetSet('href', $value);
+		return $this->set('href', $value);
 	}
 
 	/**
@@ -97,7 +97,7 @@ class Link extends GenericAccessors
 	 */
 	public function setHrefLang(string $value): Link
 	{
-		return $this->offsetSet('hreflang', $value);
+		return $this->set('hreflang', $value);
 	}
 
 	/**
@@ -119,7 +119,7 @@ class Link extends GenericAccessors
 	 */
 	public function setMedia(string $value): Link
 	{
-		return $this->offsetSet('media', $value);
+		return $this->set('media', $value);
 	}
 
 	/**
@@ -141,7 +141,7 @@ class Link extends GenericAccessors
 	 */
 	public function setRel(string $value): Link
 	{
-		return $this->offsetSet('rel', $value);
+		return $this->set('rel', $value);
 	}
 
 	/**
@@ -163,7 +163,7 @@ class Link extends GenericAccessors
 	 */
 	public function setRev(string $value): Link
 	{
-		return $this->offsetSet('rev', $value);
+		return $this->set('rev', $value);
 	}
 
 	/**
@@ -185,7 +185,7 @@ class Link extends GenericAccessors
 	 */
 	public function setSizes(string $value): Link
 	{
-		return $this->offsetSet('sizes', $value);
+		return $this->set('sizes', $value);
 	}
 
 	/**
@@ -207,7 +207,7 @@ class Link extends GenericAccessors
 	 */
 	public function setTarget(string $value): Link
 	{
-		return $this->offsetSet('target', $value);
+		return $this->set('target', $value);
 	}
 
 	/**
@@ -229,7 +229,7 @@ class Link extends GenericAccessors
 	 */
 	public function setType(string $value): Link
 	{
-		return $this->offsetSet('type', $value);
+		return $this->set('type', $value);
 	}
 
 	/**

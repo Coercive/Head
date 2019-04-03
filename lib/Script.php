@@ -36,7 +36,7 @@ class Script extends GenericAccessors
 	 */
 	public function setCharset(string $value): Script
 	{
-		return $this->offsetSet('charset', $value);
+		return $this->set('charset', $value);
 	}
 
 	/**
@@ -59,7 +59,7 @@ class Script extends GenericAccessors
 	 */
 	public function setAsync(string $value): Script
 	{
-		return $this->offsetSet('async', $value);
+		return $this->set('async', $value);
 	}
 
 	/**
@@ -82,7 +82,7 @@ class Script extends GenericAccessors
 	 */
 	public function setDefer(string $value): Script
 	{
-		return $this->offsetSet('defer', $value);
+		return $this->set('defer', $value);
 	}
 
 	/**
@@ -105,7 +105,7 @@ class Script extends GenericAccessors
 	 */
 	public function setSrc(string $value): Script
 	{
-		return $this->offsetSet('src', $value);
+		return $this->set('src', $value);
 	}
 
 	/**
@@ -128,7 +128,7 @@ class Script extends GenericAccessors
 	 */
 	public function setType(string $value): Script
 	{
-		return $this->offsetSet('type', $value);
+		return $this->set('type', $value);
 	}
 
 	/**
@@ -150,7 +150,7 @@ class Script extends GenericAccessors
 	 */
 	public function setContent(string $value): Script
 	{
-		return $this->offsetSet('content', $value);
+		return $this->set('content', $value);
 	}
 
 	/**

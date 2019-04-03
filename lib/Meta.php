@@ -31,7 +31,7 @@ class Meta extends GenericAccessors
 	 */
 	public function setCharset(string $value): Meta
 	{
-		return $this->offsetSet('charset', $value);
+		return $this->set('charset', $value);
 	}
 
 	/**
@@ -54,7 +54,7 @@ class Meta extends GenericAccessors
 	 */
 	public function setName(string $value): Meta
 	{
-		return $this->offsetSet('name', $value);
+		return $this->set('name', $value);
 	}
 
 	/**
@@ -76,7 +76,7 @@ class Meta extends GenericAccessors
 	 */
 	public function setContent(string $value): Meta
 	{
-		return $this->offsetSet('content', $value);
+		return $this->set('content', $value);
 	}
 
 	/**
@@ -98,7 +98,7 @@ class Meta extends GenericAccessors
 	 */
 	public function setProperty(string $value): Meta
 	{
-		return $this->offsetSet('property', $value);
+		return $this->set('property', $value);
 	}
 
 	/**
@@ -120,7 +120,7 @@ class Meta extends GenericAccessors
 	 */
 	public function setHttpEquiv(string $value): Meta
 	{
-		return $this->offsetSet('http-equiv', $value);
+		return $this->set('http-equiv', $value);
 	}
 
 	/**
@@ -142,7 +142,7 @@ class Meta extends GenericAccessors
 	 */
 	public function setItemprop(string $value): Meta
 	{
-		return $this->offsetSet('itemprop', $value);
+		return $this->set('itemprop', $value);
 	}
 
 	/**

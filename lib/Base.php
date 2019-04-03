@@ -31,7 +31,7 @@ class Base extends GenericAccessors
 	 */
 	public function setHref(string $value): Base
 	{
-		return $this->offsetSet('href', $value);
+		return $this->set('href', $value);
 	}
 
 	/**
@@ -53,7 +53,7 @@ class Base extends GenericAccessors
 	 */
 	public function setTarget(string $value): Base
 	{
-		return $this->offsetSet('target', $value);
+		return $this->set('target', $value);
 	}
 
 	/**

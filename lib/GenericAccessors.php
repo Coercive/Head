@@ -27,7 +27,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function getAttr(string $name, string $escape = '"'): string
 	{
-		$value = (string) $this->offsetGet($name);
+		$value = (string) $this->get($name);
 		return $escape ? str_replace($escape, '', $value) : $value;
 	}
 
@@ -40,7 +40,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setAttr(string $name, string $value)
 	{
-		return $this->offsetSet($name, $value);
+		return $this->set($name, $value);
 	}
 
 	# - HTML5 GLOBAL ATTRIBUTES
@@ -54,7 +54,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setAccessKey(string $value)
 	{
-		return $this->offsetSet('accesskey', $value);
+		return $this->set('accesskey', $value);
 	}
 
 	/**
@@ -76,7 +76,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setClass(string $value)
 	{
-		return $this->offsetSet('class', $value);
+		return $this->set('class', $value);
 	}
 
 	/**
@@ -98,7 +98,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setContentEditable(string $value)
 	{
-		return $this->offsetSet('contenteditable', $value);
+		return $this->set('contenteditable', $value);
 	}
 
 	/**
@@ -121,7 +121,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setData(string $name, string $value)
 	{
-		return $this->offsetSet('data-'.$name, $value);
+		return $this->set('data-'.$name, $value);
 	}
 
 	/**
@@ -144,7 +144,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setDir(string $value)
 	{
-		return $this->offsetSet('dir', $value);
+		return $this->set('dir', $value);
 	}
 
 	/**
@@ -166,7 +166,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setDraggable(string $value)
 	{
-		return $this->offsetSet('draggable', $value);
+		return $this->set('draggable', $value);
 	}
 
 	/**
@@ -188,7 +188,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setDropzone(string $value)
 	{
-		return $this->offsetSet('dropzone', $value);
+		return $this->set('dropzone', $value);
 	}
 
 	/**
@@ -210,7 +210,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setHidden(string $value)
 	{
-		return $this->offsetSet('hidden', $value);
+		return $this->set('hidden', $value);
 	}
 
 	/**
@@ -232,7 +232,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setId(string $value)
 	{
-		return $this->offsetSet('id', $value);
+		return $this->set('id', $value);
 	}
 
 	/**
@@ -254,7 +254,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setLang(string $value)
 	{
-		return $this->offsetSet('lang', $value);
+		return $this->set('lang', $value);
 	}
 
 	/**
@@ -276,7 +276,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setSpellCheck(string $value)
 	{
-		return $this->offsetSet('spellcheck', $value);
+		return $this->set('spellcheck', $value);
 	}
 
 	/**
@@ -298,7 +298,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setStyle(string $value)
 	{
-		return $this->offsetSet('style', $value);
+		return $this->set('style', $value);
 	}
 
 	/**
@@ -320,7 +320,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setTabIndex(int $value)
 	{
-		return $this->offsetSet('tabindex', $value);
+		return $this->set('tabindex', $value);
 	}
 
 	/**
@@ -341,7 +341,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setTitle(string $value)
 	{
-		return $this->offsetSet('title', $value);
+		return $this->set('title', $value);
 	}
 
 	/**
@@ -363,7 +363,7 @@ abstract class GenericAccessors extends Container
 	 */
 	public function setTranslate(string $value)
 	{
-		return $this->offsetSet('translate', $value);
+		return $this->set('translate', $value);
 	}
 
 	/**

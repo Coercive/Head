@@ -45,13 +45,13 @@ class Head extends Container
 		# Add uniq Meta
 		if($uniq)
 		{
-			$this->offsetSet($name, $meta);
+			$this->set($name, $meta);
 		}
 
 		# Add multi Meta
 		else
 		{
-			$this->offsetPush($name, $meta);
+			$this->push($name, $meta);
 		}
 
 		# Maintain chainability
@@ -71,7 +71,7 @@ class Head extends Container
 
 	public function addCustomTitle(Title $title): Head
 	{
-		return $this->offsetSet('title', $title);
+		return $this->set('title', $title);
 	}
 
 	public function addTitle(string $value): Head
@@ -82,7 +82,7 @@ class Head extends Container
 
 	public function addCustomBase(Base $base): Head
 	{
-		return $this->offsetSet('base', $base);
+		return $this->set('base', $base);
 	}
 
 	public function addBase(string $href, string $target): Head
@@ -145,7 +145,7 @@ class Head extends Container
 
 	public function addCustomCssLink(Link $link): Head
 	{
-		return $this->offsetPush('link', $link);
+		return $this->push('link', $link);
 	}
 
 	public function addCssLink(string $href, string $media = 'screen'): Head
@@ -161,7 +161,7 @@ class Head extends Container
 
 	public function addCustomScript(Script $script): Head
 	{
-		return $this->offsetPush('script', $script);
+		return $this->push('script', $script);
 	}
 
 	public function addScriptSource(string $src): Head

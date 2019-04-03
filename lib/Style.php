@@ -37,7 +37,7 @@ class Style extends GenericAccessors
 	 */
 	public function setType(string $value): Style
 	{
-		return $this->offsetSet('type', $value);
+		return $this->set('type', $value);
 	}
 
 	/**
@@ -60,7 +60,7 @@ class Style extends GenericAccessors
 	 */
 	public function setMedia(string $value): Style
 	{
-		return $this->offsetSet('media', $value);
+		return $this->set('media', $value);
 	}
 
 	/**
@@ -82,7 +82,7 @@ class Style extends GenericAccessors
 	 */
 	public function setContent(string $value): Style
 	{
-		return $this->offsetSet('content', $value);
+		return $this->set('content', $value);
 	}
 
 	/**

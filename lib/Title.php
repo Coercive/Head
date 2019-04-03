@@ -32,7 +32,7 @@ class Title extends GenericAccessors
 	public function setContent(string $value): Title
 	{
 		$value = preg_replace('<|>', '', strip_tags($value));
-		return $this->offsetSet('content', $value);
+		return $this->set('content', $value);
 	}
 
 	/**
