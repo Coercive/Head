@@ -28,7 +28,6 @@ class Head extends GroupContainer
 		}
 		elseif(!($title = $this->get('title'))) {
 			$title = new Title;
-			$title->setName('title');
 			$this->set('title', $title);
 		}
 		return $title;
@@ -47,7 +46,6 @@ class Head extends GroupContainer
 		}
 		elseif(!($base = $this->get('base'))) {
 			$base = new Base;
-			$base->setName('base');
 			$this->set('base', $base);
 		}
 		return $base;
