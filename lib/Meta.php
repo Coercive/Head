@@ -17,7 +17,7 @@ class Meta extends GenericAccessors
 	{
 		$html = '<meta ';
 		foreach ($this->getArrayCopy() as $attr => $data) {
-			$html .= $attr . '"' . str_replace('"', '', $data) . '" ';
+			$html .= $attr . '="' . str_replace('"', '', $data) . '" ';
 		}
 		$html .= '/>';
 		return $html;
