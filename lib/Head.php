@@ -104,6 +104,7 @@ class Head extends Container
 		}
 		elseif(!($meta = $this->get($name))) {
 			$meta = new Meta;
+			$meta->setName($name);
 			$this->set($name, $meta);
 		}
 		return $meta;
@@ -122,6 +123,7 @@ class Head extends Container
 		}
 		elseif(!($title = $this->get('title'))) {
 			$title = new Title;
+			$title->setName('title');
 			$this->set('title', $title);
 		}
 		return $title;
@@ -140,6 +142,7 @@ class Head extends Container
 		}
 		elseif(!($base = $this->get('base'))) {
 			$base = new Base;
+			$base->setName('base');
 			$this->set('base', $base);
 		}
 		return $base;
