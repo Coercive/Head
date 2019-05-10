@@ -28,6 +28,7 @@ class Og extends GroupContainer
 	 */
 	public function setTitle(string $data): Facebook
 	{
+		$data = str_replace('"', '', strip_tags($data));
 		$meta = (new Meta)->setProperty('og:title')->setContent($data);
 		$this->Meta('og:title', $meta);
 		return $this;
@@ -39,6 +40,7 @@ class Og extends GroupContainer
 	 */
 	public function setDescription(string $data): Facebook
 	{
+		$data = str_replace('"', '', strip_tags($data));
 		$meta = (new Meta)->setProperty('og:description')->setContent($data);
 		$this->Meta('og:description', $meta);
 		return $this;
@@ -116,6 +118,7 @@ class Og extends GroupContainer
 	 */
 	public function setImageAlt(string $data): Facebook
 	{
+		$data = str_replace('"', '', strip_tags($data));
 		$meta = (new Meta)->setProperty('og:image:alt')->setContent($data);
 		$this->Meta('og:image:alt', $meta);
 		return $this;
