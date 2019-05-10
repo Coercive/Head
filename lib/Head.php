@@ -212,7 +212,7 @@ class Head extends GroupContainer
 	 */
 	public function LastModified(Meta $meta = null): Meta
 	{
-		return $this->Meta('last-modified', $meta);
+		return $this->Meta('last-modified', $meta)->setHttpEquiv('last-modified');
 	}
 
 	/**
