@@ -15,6 +15,11 @@ use Coercive\App\Service\Container;
  */
 class Head extends Container
 {
+	/**
+	 * Automatic HTML export
+	 *
+	 * @return string
+	 */
 	public function toHtml(): string
 	{
 		$html = '';
@@ -40,6 +45,14 @@ class Head extends Container
 		return $html;
 	}
 
+	/**
+	 * Manual add a custom metatag
+	 *
+	 * @param string $name
+	 * @param Meta   $meta
+	 * @param bool   $uniq
+	 * @return Head
+	 */
 	public function addCustomMeta(string $name, Meta $meta, bool $uniq = true): Head
 	{
 		# Add uniq Meta
@@ -58,6 +71,14 @@ class Head extends Container
 		return $this;
 	}
 
+	/**
+	 * Manual add a basic metatag
+	 *
+	 * @param string $name
+	 * @param string $value
+	 * @param bool   $uniq
+	 * @return Head
+	 */
 	public function addMeta(string $name, string $value, bool $uniq = true): Head
 	{
 		# Prepare Meta
@@ -69,78 +90,166 @@ class Head extends Container
 		return $this->addCustomMeta($name, $meta, $uniq);
 	}
 
-	public function addCustomTitle(Title $title): Head
+	/**
+	 * Meta
+	 *
+	 * @param string $name
+	 * @param Meta $meta [optional]
+	 * @return Meta
+	 */
+	public function Meta(string $name, Meta $meta = null): Meta
 	{
-		return $this->offsetSet('title', $title);
+		if($meta) {
+			$this->set($name, $meta);
+		}
+		elseif(!($meta = $this->get($name))) {
+			$meta = new Meta;
+		}
+		return $meta;
 	}
 
-	public function addTitle(string $value): Head
+	/**
+	 * Meta Title
+	 *
+	 * @param Title $title [optional]
+	 * @return Title
+	 */
+	public function Title(Title $title = null): Title
 	{
-		$title = (new Title)->setContent($value);
-		return $this->addCustomTitle($title);
+		if($title) {
+			$this->set('title', $title);
+		}
+		elseif(!($title = $this->get('title'))) {
+			$title = new Title;
+		}
+		return $title;
 	}
 
-	public function addCustomBase(Base $base): Head
+	/**
+	 * Meta Base
+	 *
+	 * @param Base $base [optional]
+	 * @return Base
+	 */
+	public function Base(Base $base = null): Base
 	{
-		return $this->offsetSet('base', $base);
+		if($base) {
+			$this->set('base', $base);
+		}
+		elseif(!($base = $this->get('base'))) {
+			$base = new Base;
+		}
+		return $base;
 	}
 
-	public function addBase(string $href, string $target): Head
+	/**
+	 * Meta Base
+	 *
+	 * @param Meta $meta [optional]
+	 * @return Meta
+	 */
+	public function Charset(Meta $meta = null): Meta
 	{
-		$base = (new Base)->setHref($href)->setTarget($target);
-		return $this->addCustomBase($base);
+		return $this->Meta('charset', $meta);
 	}
 
-	public function addCharset(string $value): Head
+	/**
+	 * Meta Refresh
+	 *
+	 * @param Meta $meta [optional]
+	 * @return Meta
+	 */
+	public function Refresh(Meta $meta = null): Meta
 	{
-		$meta = (new Meta)->setCharset($value);
-		return $this->addCustomMeta('charset', $meta);
+		return $this->Meta('refresh', $meta);
 	}
 
-	public function addRefresh(string $value): Head
+	/**
+	 * Meta Description
+	 *
+	 * @param Meta $meta [optional]
+	 * @return Meta
+	 */
+	public function Description(Meta $meta = null): Meta
 	{
-		$meta = (new Meta)->setHttpEquiv('refresh')->setContent($value);
-		return $this->addCustomMeta('refresh', $meta);
+		return $this->Meta('description', $meta);
 	}
 
-	public function addDescription(string $value): Head
+	/**
+	 * Meta Author
+	 *
+	 * @param Meta $meta [optional]
+	 * @return Meta
+	 */
+	public function Author(Meta $meta = null): Meta
 	{
-		return $this->addMeta('description', $value);
+		return $this->Meta('author', $meta);
 	}
 
-	public function addAuthor(string $value): Head
+	/**
+	 * Meta Generator
+	 *
+	 * @param Meta $meta [optional]
+	 * @return Meta
+	 */
+	public function Generator(Meta $meta = null): Meta
 	{
-		return $this->addMeta('author', $value);
+		return $this->Meta('generator', $meta);
 	}
 
-	public function addGenerator(string $value): Head
+	/**
+	 * Meta Generator
+	 *
+	 * @param Meta $meta [optional]
+	 * @return Meta
+	 */
+	public function Keywords(Meta $meta = null): Meta
 	{
-		return $this->addMeta('generator', $value);
+		return $this->Meta('keywords', $meta);
 	}
 
-	public function addKeywords(string $value): Head
+	/**
+	 * Meta Viewport
+	 *
+	 * @param Meta $meta [optional]
+	 * @return Meta
+	 */
+	public function Viewport(Meta $meta = null): Meta
 	{
-		return $this->addMeta('keywords', $value);
+		return $this->Meta('viewport', $meta);
 	}
 
-	public function addViewport(string $value): Head
+	/**
+	 * Meta Robots
+	 *
+	 * @param Meta $meta [optional]
+	 * @return Meta
+	 */
+	public function Robots(Meta $meta = null): Meta
 	{
-		return $this->addMeta('viewport', $value);
+		return $this->Meta('robots', $meta);
 	}
 
-	public function addRobots(string $value): Head
+	/**
+	 * Meta Expires
+	 *
+	 * @param Meta $meta [optional]
+	 * @return Meta
+	 */
+	public function Expires(Meta $meta = null): Meta
 	{
-		return $this->addMeta('robots', $value);
+		return $this->Meta('expires', $meta);
 	}
 
-	public function addExpires(string $value): Head
+	/**
+	 * Meta LastModified
+	 *
+	 * @param Meta $meta [optional]
+	 * @return Meta
+	 */
+	public function LastModified(Meta $meta = null): Meta
 	{
-		return $this->addMeta('expires', $value);
-	}
-
-	public function addLastModified(string $value): Head
-	{
-		return $this->addMeta('last-modified', $value);
+		return $this->Meta('last-modified', $meta);
 	}
 
 	public function addCustomCssLink(Link $link): Head
