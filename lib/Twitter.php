@@ -57,6 +57,7 @@ class Twitter extends GroupContainer
 	 */
 	public function setTitle(string $data): Twitter
 	{
+		$data = str_replace('"', '', strip_tags($data));
 		$this->Meta('twitter:title')->setContent($data);
 		return $this;
 	}
@@ -67,6 +68,7 @@ class Twitter extends GroupContainer
 	 */
 	public function setDescription(string $data): Twitter
 	{
+		$data = str_replace('"', '', strip_tags($data));
 		$this->Meta('twitter:description')->setContent($data);
 		return $this;
 	}
