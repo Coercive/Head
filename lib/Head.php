@@ -216,6 +216,18 @@ class Head extends GroupContainer
 	}
 
 	/**
+	 * Easy set refresh tag
+	 *
+	 * @param int $delay
+	 * @param string $url
+	 * @return Meta
+	 */
+	public function setRefresh(int $delay, string $url): Meta
+	{
+		return $this->Refresh()->setContent("$delay;URL=$url");
+	}
+
+	/**
 	 * Add custom link tag
 	 *
 	 * @param Link $link
