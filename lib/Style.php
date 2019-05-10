@@ -18,7 +18,7 @@ class Style extends GenericAccessors
 		$html = '<style ';
 		foreach ($this->getArrayCopy() as $attr => $data) {
 			if($attr === 'content') { continue; }
-			$html .= $attr . '"' . str_replace('"', '', $data) . '" ';
+			$html .= $attr . '="' . str_replace('"', '', $data) . '" ';
 		}
 		$html .= '>';
 		if($this->offsetExists('content')) {
