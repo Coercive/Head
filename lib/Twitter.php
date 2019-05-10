@@ -15,7 +15,7 @@ class Twitter extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setCard(string $data): Facebook
+	public function setCard(string $data): Twitter
 	{
 		$this->Meta('twitter:card')->setContent($data);
 		return $this;
@@ -25,7 +25,7 @@ class Twitter extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setSite(string $data): Facebook
+	public function setSite(string $data): Twitter
 	{
 		$this->Meta('twitter:site')->setContent($data);
 		return $this;
@@ -35,7 +35,7 @@ class Twitter extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setCreator(string $data): Facebook
+	public function setCreator(string $data): Twitter
 	{
 		$this->Meta('twitter:creator')->setContent($data);
 		return $this;
@@ -45,7 +45,7 @@ class Twitter extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setUrl(string $data): Facebook
+	public function setUrl(string $data): Twitter
 	{
 		$this->Meta('twitter:url')->setContent($data);
 		return $this;
@@ -55,7 +55,7 @@ class Twitter extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setTitle(string $data): Facebook
+	public function setTitle(string $data): Twitter
 	{
 		$this->Meta('twitter:title')->setContent($data);
 		return $this;
@@ -65,7 +65,7 @@ class Twitter extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setDescription(string $data): Facebook
+	public function setDescription(string $data): Twitter
 	{
 		$this->Meta('twitter:description')->setContent($data);
 		return $this;
@@ -75,7 +75,7 @@ class Twitter extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setImage(string $data): Facebook
+	public function setImage(string $data): Twitter
 	{
 		$this->Meta('twitter:image')->setContent($data);
 		return $this;
