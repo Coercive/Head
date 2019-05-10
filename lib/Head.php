@@ -217,11 +217,24 @@ class Head extends GroupContainer
 		return $this->Meta('last-modified', $meta);
 	}
 
+	/**
+	 * Add custom link tag
+	 *
+	 * @param Link $link
+	 * @return Head
+	 */
 	public function addCustomCssLink(Link $link): Head
 	{
-		return $this->offsetPush('link', $link);
+		return $this->push('link', $link);
 	}
 
+	/**
+	 * Add autobasics css link tag
+	 *
+	 * @param string $href
+	 * @param string $media [optional]
+	 * @return Head
+	 */
 	public function addCssLink(string $href, string $media = 'screen'): Head
 	{
 		$link = (new Link)
@@ -233,11 +246,23 @@ class Head extends GroupContainer
 		return $this->addCustomCssLink($link);
 	}
 
+	/**
+	 * Add custom script tag
+	 *
+	 * @param Script $script
+	 * @return Head
+	 */
 	public function addCustomScript(Script $script): Head
 	{
-		return $this->offsetPush('script', $script);
+		return $this->push('script', $script);
 	}
 
+	/**
+	 * Add basic script tag
+	 *
+	 * @param string $src
+	 * @return Head
+	 */
 	public function addScriptSource(string $src): Head
 	{
 		$script = (new Script)
