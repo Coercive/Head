@@ -54,6 +54,60 @@ class Head extends GroupContainer
 	}
 
 	/**
+	 * Og
+	 *
+	 * @param Og $og [optional]
+	 * @return Og
+	 */
+	public function Og(Og $og = null): Og
+	{
+		if($og) {
+			$this->set('og', $og);
+		}
+		elseif(!($og = $this->get('og'))) {
+			$og = new Og;
+			$this->set('og', $og);
+		}
+		return $og;
+	}
+	
+	/**
+	 * Facebook
+	 *
+	 * @param Facebook $facebook [optional]
+	 * @return Facebook
+	 */
+	public function Facebook(Facebook $facebook = null): Facebook
+	{
+		if($facebook) {
+			$this->set('facebook', $facebook);
+		}
+		elseif(!($facebook = $this->get('facebook'))) {
+			$facebook = new Facebook;
+			$this->set('facebook', $facebook);
+		}
+		return $facebook;
+	}
+
+	/**
+	 * Twitter
+	 *
+	 * @param Twitter $twitter [optional]
+	 * @return Twitter
+	 */
+	public function Twitter(Twitter $twitter = null): Twitter
+	{
+		if($twitter) {
+			$this->set('twitter', $twitter);
+		}
+		elseif(!($twitter = $this->get('twitter'))) {
+			$twitter = new Twitter;
+			$this->set('twitter', $twitter);
+		}
+		return $twitter;
+	}
+
+	/**
 	 * Meta Base
 	 *
 	 * @param Meta $meta [optional]
