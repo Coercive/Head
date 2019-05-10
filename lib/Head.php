@@ -124,7 +124,7 @@ class Head extends GroupContainer
 	 */
 	public function Refresh(Meta $meta = null): Meta
 	{
-		return $this->Meta('refresh', $meta);
+		return $this->Meta('refresh', $meta)->setHttpEquiv('refresh');
 	}
 
 	/**
