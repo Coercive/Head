@@ -17,7 +17,7 @@ class Base extends GenericAccessors
 	{
 		$html = '<base ';
 		foreach ($this->getArrayCopy() as $attr => $data) {
-			$html .= $attr . '"' . str_replace('"', '', $data) . '" ';
+			$html .= $attr . '="' . str_replace('"', '', $data) . '" ';
 		}
 		$html .= '/>';
 		return $html;
