@@ -26,12 +26,14 @@ abstract class GroupContainer extends Container
 			if(is_array($items)) {
 				/** @var GenericAccessors $item */
 				foreach ($items as $item) {
-					$html .= $item->toHtml();
-					$html .= "\n";
+					if ($item instanceof GenericAccessors || $item instanceof GroupContainer) {
+						$html .= $item->toHtml();
+						$html .= "\n";
+					}
 				}
 			}
 
-			else {
+			elseif ($items instanceof GenericAccessors || $items instanceof GroupContainer) {
 				$html .= $items->toHtml();
 				$html .= "\n";
 			}
