@@ -1,8 +1,6 @@
 <?php
 namespace Coercive\Utility\Head;
 
-use Coercive\App\Service\Container;
-
 /**
  * HTML HEAD UTILITY
  *
