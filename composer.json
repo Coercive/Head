@@ -16,11 +16,11 @@
         }
     ],
     "require": {
-        "php": ">=7.1"
+        "php": ">=7"
     },
     "require-dev": {},
     "autoload": {
-        "psr-4": { "Coercive\\Utility\\Head\\": "dist/" }
+        "psr-4": { "Coercive\\Utility\\Head\\": "lib/" }
     },
     "minimum-stability" : "dev",
     "extra": {

@@ -17,9 +17,11 @@ class Title extends GenericAccessors
 	{
 		$html = '<title ';
 		foreach ($this->getArrayCopy() as $attr => $data) {
-			$html .= $attr . '"' . str_replace('"', '', $data) . '" ';
+			if($attr !== 'content') {
+				$html .= $attr . '="' . str_replace('"', '', $data) . '" ';
+			}
 		}
-		$html .= '/>';
+		$html .= '>' . $this->getContent() . '</title>';
 		return $html;
 	}
 

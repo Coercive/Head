@@ -17,7 +17,7 @@ class Link extends GenericAccessors
 	{
 		$html = '<link ';
 		foreach ($this->getArrayCopy() as $attr => $data) {
-			$html .= $attr . '"' . str_replace('"', '', $data) . '" ';
+			$html .= $attr . '="' . str_replace('"', '', $data) . '" ';
 		}
 		$html .= '/>';
 		return $html;
