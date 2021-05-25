@@ -13,7 +13,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setUrl(string $data): Facebook
+	public function setUrl(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:url')->setContent($data);
 		$this->Meta('og:url', $meta);
@@ -24,7 +24,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setTitle(string $data): Facebook
+	public function setTitle(string $data): Og
 	{
 		$data = str_replace('"', '', strip_tags($data));
 		$meta = (new Meta)->setProperty('og:title')->setContent($data);
@@ -36,7 +36,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setDescription(string $data): Facebook
+	public function setDescription(string $data): Og
 	{
 		$data = str_replace('"', '', strip_tags($data));
 		$meta = (new Meta)->setProperty('og:description')->setContent($data);
@@ -48,7 +48,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setImage(string $data): Facebook
+	public function setImage(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:image')->setContent($data);
 		$this->Meta('og:image', $meta);
@@ -59,7 +59,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setImageUrl(string $data): Facebook
+	public function setImageUrl(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:image:url')->setContent($data);
 		$this->Meta('og:image:url', $meta);
@@ -70,7 +70,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setImageSecureUrl(string $data): Facebook
+	public function setImageSecureUrl(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:image:secure_url')->setContent($data);
 		$this->Meta('og:image:secure_url', $meta);
@@ -81,7 +81,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setImageType(string $data): Facebook
+	public function setImageType(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:image:type')->setContent($data);
 		$this->Meta('og:image:type', $meta);
@@ -92,7 +92,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setImageWidth(string $data): Facebook
+	public function setImageWidth(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:image:width')->setContent($data);
 		$this->Meta('og:image:width', $meta);
@@ -103,7 +103,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setImageHeight(string $data): Facebook
+	public function setImageHeight(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:image:height')->setContent($data);
 		$this->Meta('og:image:height', $meta);
@@ -114,7 +114,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setImageAlt(string $data): Facebook
+	public function setImageAlt(string $data): Og
 	{
 		$data = str_replace('"', '', strip_tags($data));
 		$meta = (new Meta)->setProperty('og:image:alt')->setContent($data);
@@ -126,7 +126,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setAppId(string $data): Facebook
+	public function setAppId(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('fb:app_id')->setContent($data);
 		$this->Meta('fb:app_id', $meta);
@@ -137,7 +137,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setType(string $data): Facebook
+	public function setType(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:type')->setContent($data);
 		$this->Meta('og:type', $meta);
@@ -148,7 +148,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setLocale(string $data): Facebook
+	public function setLocale(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:locale')->setContent($data);
 		$this->Meta('og:locale', $meta);
@@ -159,7 +159,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setSiteName(string $data): Facebook
+	public function setSiteName(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:site_name')->setContent($data);
 		$this->Meta('og:site_name', $meta);
@@ -170,7 +170,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setVideo(string $data): Facebook
+	public function setVideo(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:video')->setContent($data);
 		$this->Meta('og:video', $meta);
@@ -181,7 +181,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setVideoUrl(string $data): Facebook
+	public function setVideoUrl(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:video:url')->setContent($data);
 		$this->Meta('og:video:url', $meta);
@@ -192,7 +192,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setVideoSecureUrl(string $data): Facebook
+	public function setVideoSecureUrl(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:video:secure_url')->setContent($data);
 		$this->Meta('og:video:secure_url', $meta);
@@ -203,7 +203,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setVideoType(string $data): Facebook
+	public function setVideoType(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:video:type')->setContent($data);
 		$this->Meta('og:video:type', $meta);
@@ -214,7 +214,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setVideoWidth(string $data): Facebook
+	public function setVideoWidth(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:video:width')->setContent($data);
 		$this->Meta('og:video:width', $meta);
@@ -225,7 +225,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setVideoHeight(string $data): Facebook
+	public function setVideoHeight(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:video:height')->setContent($data);
 		$this->Meta('og:video:height', $meta);
@@ -236,7 +236,7 @@ class Og extends GroupContainer
 	 * @param string $data
 	 * @return $this
 	 */
-	public function setAsset(string $data): Facebook
+	public function setAsset(string $data): Og
 	{
 		$meta = (new Meta)->setProperty('og:asset')->setContent($data);
 		$this->Meta('og:asset', $meta);
