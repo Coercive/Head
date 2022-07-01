@@ -26,6 +26,55 @@ class Title extends GenericAccessors
 	}
 
 	/**
+	 * @param string $value
+	 * @param string|null $direction [optional] [default=before]
+	 * @param string|null $separator [optional] [default= | ]
+	 * @return $this
+	 */
+	public function addContent(string $value, ? string $direction = null, ? string $separator = null): Title
+	{
+		if(null === $direction) {
+			$direction = 'before';
+		}
+		if(null === $separator) {
+			$separator = ' | ';
+		}
+		if($value && $current = $this->offsetGet('content')) {
+			switch ($direction) {
+				case 'right':
+				case 'after':
+					$value = $current . $separator . $value;
+					break;
+				case 'left':
+				case 'before':
+				default:
+					$value = $value . $separator . $current;
+			}
+		}
+		return $this->setContent($value);
+	}
+
+	/**
+	 * @param string $value
+	 * @param string|null $separator [optional] [default= | ]
+	 * @return $this
+	 */
+	public function addContentBefore(string $value, ? string $separator = null): Title
+	{
+		return $this->addContent($value, 'before', $separator);
+	}
+
+	/**
+	 * @param string $value
+	 * @param string|null $separator [optional] [default= | ]
+	 * @return $this
+	 */
+	public function addContentAfter(string $value, ? string $separator = null): Title
+	{
+		return $this->addContent($value, 'after', $separator);
+	}
+
+	/**
 	 * (SET) CONTENT
 	 *
 	 * @param string $value
