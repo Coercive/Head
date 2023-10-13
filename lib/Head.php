@@ -231,7 +231,7 @@ class Head extends GroupContainer
 	 * @param Link $link
 	 * @return Head
 	 */
-	public function addCustomCssLink(Link $link): Head
+	public function addLink(Link $link): Head
 	{
 		return $this->push('link', $link);
 	}
@@ -251,7 +251,7 @@ class Head extends GroupContainer
 			->setCharset('utf-8')
 			->setMedia($media)
 			->setHref($href);
-		return $this->addCustomCssLink($link);
+		return $this->addLink($link);
 	}
 
 	/**
@@ -277,5 +277,37 @@ class Head extends GroupContainer
 			->setType('text/javascript')
 			->setSrc($src);
 		return $this->addCustomScript($script);
+	}
+
+	/**
+	 * Add canonical url
+	 *
+	 * @param string $href
+	 * @return Head
+	 */
+	public function addCanonical(string $href): Head
+	{
+		$link = (new Link)
+			->setRel('canonical')
+			->setHref($href);
+		return $this->addLink($link);
+	}
+
+	/**
+	 * Add alternate url
+	 *
+	 * @param string $href
+	 * @param string $media [optional]
+	 * @return Head
+	 */
+	public function addAlternate(string $href, string $media = ''): Head
+	{
+		$link = (new Link)
+			->setRel('alternate')
+			->setHref($href);
+		if($media) {
+			$link->setMedia($media);
+		}
+		return $this->addLink($link);
 	}
 }
