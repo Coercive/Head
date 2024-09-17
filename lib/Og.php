@@ -50,7 +50,10 @@ class Og extends GroupContainer
 	 */
 	public function setImage(string $data): Og
 	{
-		$meta = (new Meta)->setProperty('og:image')->setContent($data);
+		$meta = (new Meta)
+			->setName('image')
+			->setProperty('og:image')
+			->setContent($data);
 		$this->Meta('og:image', $meta);
 		return $this;
 	}
@@ -61,7 +64,10 @@ class Og extends GroupContainer
 	 */
 	public function setImageUrl(string $data): Og
 	{
-		$meta = (new Meta)->setProperty('og:image:url')->setContent($data);
+		$meta = (new Meta)
+			->setName('image')
+			->setProperty('og:image:url')
+			->setContent($data);
 		$this->Meta('og:image:url', $meta);
 		return $this;
 	}
@@ -72,7 +78,10 @@ class Og extends GroupContainer
 	 */
 	public function setImageSecureUrl(string $data): Og
 	{
-		$meta = (new Meta)->setProperty('og:image:secure_url')->setContent($data);
+		$meta = (new Meta)
+			->setName('image')
+			->setProperty('og:image:secure_url')
+			->setContent($data);
 		$this->Meta('og:image:secure_url', $meta);
 		return $this;
 	}
